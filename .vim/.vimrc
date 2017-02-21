@@ -31,7 +31,7 @@ colorscheme badwolf                    " awesome colorscheme
 "
 "Powerline
 "
-set guifont=Roboto\ Mono\ for\ Powerline
+"set guifont=Roboto\ Mono\ for\ Powerline
 
 set t_Co=256                           " 256-color support
 set encoding=utf-8                     " Make symbols work
@@ -51,10 +51,16 @@ let g:ctrlp_cmd = 'CtrlP'                "change default mapping
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 
-" Indent Lines
+" Syntastic
 "
-let g:indentLine_color_term = 237      " customize conceal color
-let g:indentLine_char = '|'            " customize character for line
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " ==================== UI ===========================================
 "
@@ -65,6 +71,12 @@ set wildmenu                           " visual autocomplete for command menu
 set showmatch                          " highlight matching [{()}]
 highlight ExtraWhitespace ctermbg=red guibg=red " highlight white space
 match ExtraWhitespace /\s\+$/
+
+" Indent Lines
+"
+set list
+set listchars=tab:\|\ 
+
 
 " =================== SEARCH ========================================
 "
