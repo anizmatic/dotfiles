@@ -1,6 +1,10 @@
 " VIM Settings
 " Neha Repal 2016
 "
+" Temporary workaround for python 3.7
+if has('python3') && !has('patch-8.1.201')
+  silent! python3 1
+endif
 
 "==================== PATHOGEN =======================================
 " Plugin manager:
@@ -20,6 +24,7 @@ execute pathogen#infect()
 set tabstop=4                          " number of visual spaces per TAB
 set softtabstop=4                      " number of spaces in tab when editing
 set backspace=indent,eol,start
+set nofoldenable    " disable folding
 
 " ==================== COLOURS ======================================
 "
@@ -77,6 +82,7 @@ let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_message = 1
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_python = 'python3'
 
 " ==================== UI ===========================================
 "
